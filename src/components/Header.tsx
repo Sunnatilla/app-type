@@ -1,17 +1,15 @@
 import React from 'react';
 import { Grid, Button, Typography } from '@material-ui/core';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
+import { paddingDownSm, paddingSmXl } from './helper/DefaultPadding';
  
 const useStyles = makeStyles((theme: Theme) => 
     createStyles({
         [theme.breakpoints.down('sm')]: {
             root:{
                 background: 'url(header-main.svg) no-repeat center center fixed',
-                backgroundSize: 'cover'
-            },
-            logo_div: {
-                marginLeft: '15px',
-                marginTop: '10px'
+                backgroundSize: 'cover',
+                padding: paddingDownSm
             },
             logo_img: {
                 width: '126px',
@@ -20,8 +18,6 @@ const useStyles = makeStyles((theme: Theme) =>
             buttonInternetBank: {
                 width: '120px',
                 height: '30px',
-                marginRight: '15px',
-                marginTop: '10px',
                 background: 'rgba(73, 73, 73, 0.2)',
                 border: '1px solid white',
                 boxSizing: 'border-box',
@@ -31,8 +27,7 @@ const useStyles = makeStyles((theme: Theme) =>
                 fontSize: '0.75rem'
             },
             cardDescriptionBlock: {
-                marginTop: '50px',
-                marginLeft: '20px'
+                marginTop: '50px'
             },
             cardTitle: {                
                 fontStyle: 'normal',
@@ -78,11 +73,8 @@ const useStyles = makeStyles((theme: Theme) =>
         [theme.breakpoints.between('sm', 'xl')]: {
             root:{
                 background: 'url(header-main.svg) no-repeat center center fixed',
-                backgroundSize: 'cover'
-            },
-            logo_div: {
-                marginLeft: '60px',
-                marginTop: '26px'
+                backgroundSize: 'cover',
+                padding: paddingSmXl
             },
             logo_img: {
                 width: '168px',
@@ -91,8 +83,6 @@ const useStyles = makeStyles((theme: Theme) =>
             buttonInternetBank: {
                 width: '160px',
                 height: '40px',
-                marginRight: '60px',
-                marginTop: '24px',
                 background: 'rgba(73, 73, 73, 0.2)',
                 border: '1px solid white',
                 boxSizing: 'border-box',
@@ -102,8 +92,7 @@ const useStyles = makeStyles((theme: Theme) =>
                 fontSize: '0.875rem'
             },
             cardDescriptionBlock: {
-                marginTop: '107px',
-                marginLeft: '52px'
+                marginTop: '107px'
             },
             cardTitle: {                
                 fontStyle: 'normal',
@@ -149,7 +138,7 @@ const useStyles = makeStyles((theme: Theme) =>
     })
 );
 
-const Header = () => {
+const Header = (props: any) => {
 
     const classes = useStyles({});
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Grid, Typography } from '@material-ui/core';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
+import { paddingDownSm, paddingSmXl } from './helper/DefaultPadding';
 
 const useStylesAbout = makeStyles((theme: Theme) => 
     createStyles({
@@ -120,8 +121,8 @@ const About = () => {
 const useStyles = makeStyles((theme: Theme) => 
     createStyles({
         [theme.breakpoints.down('sm')]: {
-            root: {
-                padding: '21px 20px 36px 20px'
+            root:{
+                padding: paddingDownSm
             },
             title: {                  
                 fontStyle: 'normal',
@@ -138,7 +139,7 @@ const useStyles = makeStyles((theme: Theme) =>
         },   
         [theme.breakpoints.between('sm', 'xl')]: {
             root: {
-                padding: '42px 53px 72px 53px'
+                padding: paddingSmXl
             },
             title: {                  
                 fontStyle: 'normal',
@@ -156,7 +157,7 @@ const useStyles = makeStyles((theme: Theme) =>
     })
 )
 
-const BestCard = () => {
+const BestCard = (props: any) => {
 
     const classes = useStyles({});
 

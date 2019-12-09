@@ -1,12 +1,16 @@
 import React from 'react';
-import { Header, BestCard, CalculatorCashback } from './components';
+import { Header, BestCard, CalculatorCashback, HowToGetCard, HelpYou } from './components';
 
 function App() {
+
+
   return (
     <div>
-      <Header />
+      <Header />      
       <BestCard />
       <CalculatorCashback />
+      <HowToGetCard />
+      <HelpYou />
     </div>
   );
 }

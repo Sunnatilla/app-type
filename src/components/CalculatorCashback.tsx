@@ -2,6 +2,7 @@ import React from 'react';
 import { Grid, Typography, Button, Paper, Slider } from '@material-ui/core';
 import { makeStyles, createStyles, Theme, withStyles } from '@material-ui/core/styles';
 import NumberFormat from 'react-number-format'; 
+import { paddingDownSm, paddingSmXl } from './helper/DefaultPadding';
 
 const PrettoSlider = withStyles({
     root: {
@@ -36,7 +37,7 @@ const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         [theme.breakpoints.down('sm')]: {
             root: {
-                padding: '36px 20px 36px 20px'
+                padding: paddingDownSm
             },
             title: {
                 fontStyle: 'normal',
@@ -69,7 +70,7 @@ const useStyles = makeStyles((theme: Theme) =>
                 textTransform: 'none'
             }, 
             result: {
-                padding: '32px 67px 32px 67px',
+                padding: '16px 30px 16px 30px',
                 background: '#FFFFFF',
                 boxShadow: '0px 8px 24px rgba(0, 0, 0, 0.08)',
                 borderRadius: '8px'
@@ -77,60 +78,59 @@ const useStyles = makeStyles((theme: Theme) =>
             resultTitle: {            
                 fontStyle: 'normal',
                 fontWeight: 500,
-                fontSize: '16px',
+                fontSize: '10px',
                 color: '#B9B9B9'
             },
             resultSum: {
                 fontStyle: 'normal',
                 fontWeight: 'normal',
-                fontSize: '96px',
+                fontSize: '48px',
                 color: '#141414'
             },
             resultOrderCard: {
-                width:'324px',
-                height: '64px',
+                width:'160px',
+                height: '32px',
                 backgroundColor: '#3F0259',
                 borderRadius: '8px',
                 fontStyle: 'normal',
                 fontWeight: 500,
-                fontSize: '20px',
+                fontSize: '10px',
                 textTransform: 'none',
                 color: '#FFFFFF'
             },
             monthSpending: {
                 fontStyle: 'normal',
                 fontWeight: 'normal',
-                fontSize: '13px',
-                height: '16px',
+                fontSize: '10px',
                 color: '#141414',
                 opacity: 0.7,
-                marginTop: '36px'
+                marginTop: '18px'
             },
             monthSpendingSum: {                        
                 fontStyle: 'normal',
                 fontWeight: 500,
-                fontSize: '32px',
+                fontSize: '20px',
                 color: '#141414',
-                marginTop: 12
+                marginTop: 6
             },
             monthSpendingInterval: {
                 fontStyle: 'normal',
                 fontWeight: 'normal',
-                fontSize: '13px',
+                fontSize: '10px',
                 color: '#898989'
             },
             note: {            
                 fontStyle: 'normal',
                 fontWeight: 'normal',
-                fontSize: 14,
+                fontSize: 10,
                 color: '#898989',
                 opacity: 0.7,
-                marginTop: 32
+                marginTop: 20
             }
         },
         [theme.breakpoints.between('sm', 'xl')]: {
             root: {
-                padding: '72px 52px 72px 52px'
+                padding: paddingSmXl
             },
             title: {
                 fontStyle: 'normal',
@@ -195,7 +195,6 @@ const useStyles = makeStyles((theme: Theme) =>
                 fontStyle: 'normal',
                 fontWeight: 'normal',
                 fontSize: '13px',
-                height: '16px',
                 color: '#141414',
                 opacity: 0.7,
                 marginTop: '36px'
@@ -225,7 +224,7 @@ const useStyles = makeStyles((theme: Theme) =>
     })
 )
 
-const CaclulatorCashBack = () => {
+const CaclulatorCashBack = (props: any) => {
 
     const classes = useStyles({});
 
@@ -237,7 +236,7 @@ const CaclulatorCashBack = () => {
                 <Typography className={classes.title}>Калькулятор кешбэка</Typography>
             </Grid>
             <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
-                <Grid container spacing={10}>
+                <Grid container spacing={4}>
                     <Grid item xl={6} lg={6} md={6} sm={12} xs={12}>
                         <Grid container spacing={2}>
                             <Grid item>
