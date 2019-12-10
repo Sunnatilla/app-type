@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, Typography, Paper } from '@material-ui/core';
+import { Grid, Typography, Box } from '@material-ui/core';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import { paddingDownSm, paddingSmXl } from './helper/DefaultPadding';
 import { PhoneAndroid, Call } from '@material-ui/icons';
@@ -88,19 +88,19 @@ const HelpYou = () => {
                 <Typography className={classes.ourSpec}>Наши специалисты помогут решить ваш вопрос</Typography>
             </Grid>
             <Grid item xl={4} lg={4} md={4} sm={12} xs={12}>
-                <div className={classes.paper}>
+                <Box className={classes.paper} height={1}>
                     <Typography>
                         <Call /><span className={classes.freeCall}>505</span>
                     </Typography>
                     <Typography className={classes.ourSpec}>
                         Бесплатно с мобильного
                     </Typography>
-                </div>
+                </Box>
             </Grid>
             <Grid item xl={4} lg={4} md={4} sm={12} xs={12}>
-                <div className={classes.paper}>
+                <Box className={classes.paper} height={1}>
                     <PhoneAndroid /><span className={classes.phone}>8 (727) 244 30 30</span>
-                </div>
+                </Box>
             </Grid>
         </Grid>
     )
