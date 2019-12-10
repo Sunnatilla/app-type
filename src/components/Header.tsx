@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid, Button, Typography } from '@material-ui/core';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
-import { paddingDownSm, paddingSmXl } from './helper/DefaultPadding';
+import { paddingDownSm, rootSmXl } from './helper/DefaultStyle';
  
 const useStyles = makeStyles((theme: Theme) => 
     createStyles({
@@ -71,11 +71,11 @@ const useStyles = makeStyles((theme: Theme) =>
             }
         },   
         [theme.breakpoints.between('sm', 'xl')]: {
-            root:{
+            mainRoot: {
                 background: 'url(header-main.svg) no-repeat center center fixed',
                 backgroundSize: 'cover',
-                padding: paddingSmXl
             },
+            ...rootSmXl,
             logo_img: {
                 width: '168px',
                 height: '40px',
@@ -143,55 +143,57 @@ const Header = (props: any) => {
     const classes = useStyles({});
 
     return(
-        <Grid container className={classes.root}>
-            <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
-                <Grid container>
-                    <Grid item xl={6} lg={6} md={6} sm={6} xs={6}>
-                        <div className={classes.logo_div}>
-                            <img className={classes.logo_img} src='logo-bcc.svg' alt="logo-bcc"/>
-                        </div>
-                    </Grid>
-                    <Grid item xl={6} lg={6} md={6} sm={6} xs={6}>
-                        <Grid container justify="flex-end">
-                            <Grid item>
-                                <Button className={classes.buttonInternetBank} variant="outlined">
-                                    Интернет-банк
-                                </Button>
+        <Grid container className={classes.mainRoot}>
+            <Grid container className={classes.root}>
+                <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
+                    <Grid container>
+                        <Grid item xl={6} lg={6} md={6} sm={6} xs={6}>
+                            <div className={classes.logo_div}>
+                                <img className={classes.logo_img} src='logo-bcc.svg' alt="logo-bcc"/>
+                            </div>
+                        </Grid>
+                        <Grid item xl={6} lg={6} md={6} sm={6} xs={6}>
+                            <Grid container justify="flex-end">
+                                <Grid item>
+                                    <Button className={classes.buttonInternetBank} variant="outlined">
+                                        Интернет-банк
+                                    </Button>
+                                </Grid>
                             </Grid>
                         </Grid>
                     </Grid>
                 </Grid>
-            </Grid>
-            <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
-                <Grid container className={classes.cardDescriptionBlock}>
-                    <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
-                        <Typography className={classes.cardTitle}>#картакарта</Typography>
-                    </Grid>
-                    <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
-                        <Typography className={classes.cardWhatYourWant}>для всего, что ты хочешь</Typography>
-                    </Grid>
-                    <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
-                        <Grid container spacing={6}>
-                            <Grid item>
-                                <Typography className={classes.cardLimitPecentDay}>до 3 млн тенге</Typography>
-                                <Typography className={classes.cardLimitPecentDayTh}>Кредитный лимит</Typography>
-                            </Grid>
-                            <Grid item>
-                                <Typography className={classes.cardLimitPecentDay}>до 30%</Typography>
-                                <Typography className={classes.cardLimitPecentDayTh}>Кешбэк</Typography>
-                            </Grid>
-                            <Grid item>
-                                <Typography className={classes.cardLimitPecentDay}>до 55 дней</Typography>
-                                <Typography className={classes.cardLimitPecentDayTh}>Льготный период</Typography>
+                <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
+                    <Grid container className={classes.cardDescriptionBlock}>
+                        <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
+                            <Typography className={classes.cardTitle}>#картакарта</Typography>
+                        </Grid>
+                        <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
+                            <Typography className={classes.cardWhatYourWant}>для всего, что ты хочешь</Typography>
+                        </Grid>
+                        <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
+                            <Grid container spacing={6}>
+                                <Grid item>
+                                    <Typography className={classes.cardLimitPecentDay}>до 3 млн тенге</Typography>
+                                    <Typography className={classes.cardLimitPecentDayTh}>Кредитный лимит</Typography>
+                                </Grid>
+                                <Grid item>
+                                    <Typography className={classes.cardLimitPecentDay}>до 30%</Typography>
+                                    <Typography className={classes.cardLimitPecentDayTh}>Кешбэк</Typography>
+                                </Grid>
+                                <Grid item>
+                                    <Typography className={classes.cardLimitPecentDay}>до 55 дней</Typography>
+                                    <Typography className={classes.cardLimitPecentDayTh}>Льготный период</Typography>
+                                </Grid>
                             </Grid>
                         </Grid>
-                    </Grid>
-                    <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
-                        <Button variant="contained" className={classes.buttonOrderCard}>Заказать карту</Button>
+                        <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
+                            <Button variant="contained" className={classes.buttonOrderCard}>Заказать карту</Button>
+                        </Grid>
                     </Grid>
                 </Grid>
             </Grid>
-        </Grid>
+        </Grid>        
     );
 }
 

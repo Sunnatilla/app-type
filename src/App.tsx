@@ -1,5 +1,8 @@
 import React from 'react';
-import { Header, BestCard, CardOrder, CalculatorCashback, HowToGetCard, HelpYou, MobileBanking } from './components';
+import { 
+        Header, BestCard, CardOrder, 
+        CalculatorCashback, HowToGetCard, HelpYou, 
+        MobileBanking, AdditionalInfo, GoodAnyTimeWhere } from './components';
 
 function App() {
 
@@ -8,11 +11,13 @@ function App() {
     <div>
       <Header />      
       <BestCard />
+      <GoodAnyTimeWhere />
       <CalculatorCashback />
-      <CardOrder />
       <HowToGetCard />
+      <CardOrder />
       <HelpYou />
       <MobileBanking />
+      <AdditionalInfo />
     </div>
   );
 }

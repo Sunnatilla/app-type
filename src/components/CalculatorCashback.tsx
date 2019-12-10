@@ -2,7 +2,7 @@ import React from 'react';
 import { Grid, Typography, Button, Paper, Slider } from '@material-ui/core';
 import { makeStyles, createStyles, Theme, withStyles } from '@material-ui/core/styles';
 import NumberFormat from 'react-number-format'; 
-import { paddingDownSm, paddingSmXl } from './helper/DefaultPadding';
+import { paddingDownSm, rootSmXl } from './helper/DefaultStyle';
 
 const PrettoSlider = withStyles({
     root: {
@@ -129,9 +129,7 @@ const useStyles = makeStyles((theme: Theme) =>
             }
         },
         [theme.breakpoints.between('sm', 'xl')]: {
-            root: {
-                padding: paddingSmXl
-            },
+            ...rootSmXl,
             title: {
                 fontStyle: 'normal',
                 fontWeight: 'bold',

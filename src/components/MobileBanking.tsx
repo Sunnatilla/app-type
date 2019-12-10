@@ -1,25 +1,54 @@
 import React from 'react';
 import { Grid, Typography } from '@material-ui/core';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
+import { paddingDownSm, rootSmXl } from './helper/DefaultStyle';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
-        root: {
-            padding: '50px 120px 0px 50px'
+        [theme.breakpoints.down('sm')]: {
+            root: {
+                padding: paddingDownSm
+            },
+            title: {
+                marginTop: 50,
+                fontStyle: 'normal',
+                fontWeight: 'bold',
+                fontSize: 20,
+                color: '#141414'
+            },
+            description: {
+                fontStyle: 'normal',
+                fontWeight: 'normal',
+                fontSize: 10,
+                color: '#141414',
+                marginBottom: 24
+            },
+            img: {
+                width: 232,
+                height: 242
+            }
         },
-        title: {
-            marginTop: 200,
-            fontStyle: 'normal',
-            fontWeight: 'bold',
-            fontSize: 40,
-            color: '#141414'
-        },
-        description: {
-            fontStyle: 'normal',
-            fontWeight: 'normal',
-            fontSize: 18,
-            color: '#141414',
-            marginBottom: 48
+        [theme.breakpoints.between('sm', 'xl')]: {
+            ...rootSmXl,
+            title: {
+                marginTop: 200,
+                fontStyle: 'normal',
+                fontWeight: 'bold',
+                fontSize: 40,
+                color: '#141414'
+            },
+            description: {
+                fontStyle: 'normal',
+                fontWeight: 'normal',
+                fontSize: 18,
+                color: '#141414',
+                marginBottom: 48
+            },
+            img: {
+                width: 464,
+                height: 484,
+                marginRight: 50
+            }
         }
     })
 )
@@ -44,7 +73,7 @@ const MobileBanking = () => {
                 </Grid>
             </Grid>
             <Grid item xl={false} lg={false} md={false} sm={false} xs={false}>
-                <img src="star_mobile_banking.png" alt="star_mobile_banking" />
+                <img className={classes.img} src="star_mobile_banking.png" alt="star_mobile_banking" />
             </Grid>
         </Grid>
     )

@@ -1,8 +1,7 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { makeStyles, Theme, withStyles } from '@material-ui/core/styles';
 import { Paper, Tab, Tabs } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
 import SwipeableViews from 'react-swipeable-views';
 
 interface TabPanelProps {
@@ -61,7 +60,7 @@ const StyledTabs = withStyles({
       backgroundColor: 'transparent',
       '& > div': {
         width: '100%',
-        backgroundColor: '#27AE60',
+        backgroundColor: '#FFCF87',
       },
     },
   })((props: StyledTabsProps) => <Tabs {...props} TabIndicatorProps={{ children: <div /> }} />);
