@@ -7,6 +7,9 @@ import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
+import MaskedInput from 'react-text-mask';
+import { InputLabelProps } from '@material-ui/core/InputLabel';
+import { OutlinedInputProps } from '@material-ui/core/OutlinedInput';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -15,6 +18,10 @@ const useStyles = makeStyles((theme: Theme) =>
                 marginTop: '8px',
                 padding: '36px 20px 36px 20px',
                 alignItems: 'center'
+            },
+            icon: {
+                width: '18px',
+                height: '19px',
             },
             paper: {
                 padding: '12px 8px 12px 8px',
@@ -26,19 +33,25 @@ const useStyles = makeStyles((theme: Theme) =>
             box: {
                 textAlign: 'center',
                 fontWeight: 'fontWeightBold',
-                fontSize: '20px'
+                fontSize: '20px',
+                lineHeight: '40px'
             },
             submit: {
                 background: '#FFCF87',
+                borderRadius: '8px',
+                fontSize: '20px',
+                lineHeight: '28px',
+                fontWeight: '500',
+                fontFamily: 'Roboto',
+                fontStyle: 'normal',
+                height: '62px',
                 '&:hover, &:active': {
                     backgroundColor: '#3F0259',
                     borderColor: '#3F0259',
-                    opacity: 0.8,
                     boxShadow: 'none',
                     color: '#FFFFFF'
                 }
             }
-
         },
         [theme.breakpoints.between('sm', 'xl')]: {
             root: {
@@ -53,13 +66,25 @@ const useStyles = makeStyles((theme: Theme) =>
                 boxSizing: 'border-box',
                 borderRadius: '8px'
             },
+            icon: {
+                width: '18px',
+                height: '19px',
+            },
             box: {
                 textAlign: 'center',
                 fontWeight: 'fontWeightBold',
-                fontSize: '40px'
+                fontSize: '40px',
+                lineHeight: '40px'
             },
             submit: {
                 background: '#FFCF87',
+                borderRadius: '8px',
+                fontSize: '20px',
+                lineHeight: '28px',
+                fontWeight: '500',
+                fontFamily: 'Roboto',
+                fontStyle: 'normal',
+                height: '62px',
                 '&:hover, &:active': {
                     backgroundColor: '#3F0259',
                     borderColor: '#3F0259',
@@ -67,15 +92,35 @@ const useStyles = makeStyles((theme: Theme) =>
                     boxShadow: 'none',
                     color: '#FFFFFF'
                 }
-            },
-
+            }
         }
     })
 )
+
+interface TextMaskCustomProps {
+    inputRef: (ref: HTMLInputElement | null) => void;
+  }
+  
+  function TextMaskCustom(props: TextMaskCustomProps) {
+    const { inputRef, ...other } = props;
+  
+    return (
+      <MaskedInput
+        {...other}
+        ref={(ref: any) => {
+          inputRef(ref ? ref.inputElement : null);
+        }}
+        mask={['+', /[1-9]/, ' ', '(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/]}
+        placeholderChar={'\u2000'}
+        showMask
+      />
+    );
+  }
+
 const CardOrder = () => {
 
     const [name, setName] = React.useState('');
-    const [phone, setPhone] = React.useState('');
+    const [phone, setPhone] = React.useState('7');
 
     const handleNameChange = (e: any) => {
         const { value } = e.target
@@ -110,12 +155,10 @@ const CardOrder = () => {
                         fullWidth
                         id="name"
                         label="Фамилия, имя и отчество"
-                        placeholder="Фамилия, имя и отчество"
                         name="name"
                         value={name}
                         onChange={handleNameChange}
                         autoComplete="name"
-                        autoFocus
                     />
                     <TextField
                         variant="outlined"
@@ -126,22 +169,28 @@ const CardOrder = () => {
                         value={phone}
                         onChange={handlePhoneChange}
                         label="Номер телефона"
-                        placeholder="Номер телефона"
                         id="phone"
+                        InputProps={{
+                            inputComponent: TextMaskCustom as any,
+                          }}
                     />
                     <FormControlLabel
                         control={<Checkbox value="remember" color="primary" />}
                         label="Я согласен(а) с условиями"
                     />
-                    <Grid container style={{ marginTop: 40 }}>
-                        <Grid item xl={1} lg={1} md={1} sm={1} xs={1}>
-                            <Box><img src="card_order_security.svg" className={classes.icon} alt="order_security" /></Box>
-                        </Grid>
-                        <Grid item xl={5} lg={5} md={5} sm={5} xs={5}>
-                            <Typography>
-                                <Box>Мы гарантируем безопасность</Box>
-                                <Box>и сохранность ваших данных</Box>
+                    <Grid container style={{marginTop: '15px'}}>
+                        <Grid item xl={6} lg={6} md={6} sm={12} xs={12}>
+                            <Grid container spacing={2}>
+                                <Grid item xl={false} lg={false} md={false} sm={false} xs={false}>
+                                    <img src="card_order_security.svg" className={classes.icon} alt="order_security" />
+                                </Grid>
+                                <Grid item xl={true} lg={true} md={true} sm={true} xs={true}>
+                                    <Typography>
+                                        Мы гарантируем безопасность
+                                        и сохранность ваших данных
                             </Typography>
+                                </Grid>
+                            </Grid>
                         </Grid>
                         <Grid item xl={6} lg={6} md={6} sm={12} xs={12}>
                             <Button
