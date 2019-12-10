@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header, BestCard, CalculatorCashback, HowToGetCard, HelpYou, MobileBanking } from './components';
+import { Header, BestCard, CardOrder, CalculatorCashback, HowToGetCard, HelpYou, MobileBanking } from './components';
 
 function App() {
 
@@ -9,6 +9,7 @@ function App() {
       <Header />      
       <BestCard />
       <CalculatorCashback />
+      <CardOrder />
       <HowToGetCard />
       <HelpYou />
       <MobileBanking />
