@@ -8,8 +8,6 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import MaskedInput from 'react-text-mask';
-import { InputLabelProps } from '@material-ui/core/InputLabel';
-import { OutlinedInputProps } from '@material-ui/core/OutlinedInput';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -84,6 +82,7 @@ const useStyles = makeStyles((theme: Theme) =>
                 fontWeight: '500',
                 fontFamily: 'Roboto',
                 fontStyle: 'normal',
+                textTransform: 'none',
                 height: '62px',
                 '&:hover, &:active': {
                     backgroundColor: '#3F0259',
@@ -110,7 +109,7 @@ interface TextMaskCustomProps {
         ref={(ref: any) => {
           inputRef(ref ? ref.inputElement : null);
         }}
-        mask={['+', /[1-9]/, ' ', '(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/]}
+        mask={['+', /[1-9]/, ' ', '(', /\d/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/]}
         placeholderChar={'\u2000'}
         showMask
       />
