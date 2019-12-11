@@ -2,7 +2,8 @@ import React from 'react';
 import { 
         Header, BestCard, CardOrder, 
         CalculatorCashback, HowToGetCard, HelpYou, 
-        MobileBanking, AdditionalInfo, GoodAnyTimeWhere } from './components';
+        MobileBanking, AdditionalInfo, GoodAnyTimeWhere,
+        Footer } from './components';
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
       <HelpYou />
       <MobileBanking />
       <AdditionalInfo />
+      <Footer />
     </div>
   );
 }

@@ -5,7 +5,6 @@ import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import MaskedInput from 'react-text-mask';
 
@@ -34,15 +33,24 @@ const useStyles = makeStyles((theme: Theme) =>
                 fontSize: '20px',
                 lineHeight: '40px'
             },
+            checkBoxLabel: {
+                fontStyle: 'normal',
+                fontWeight: 'normal',
+                fontSize: 12,
+                color: 'black'
+            },
+            garant: {
+                fontStyle: 'normal',
+                fontWeight: 'normal',
+                fontSize: 12
+            },
             submit: {
                 background: '#FFCF87',
-                borderRadius: '8px',
-                fontSize: '20px',
-                lineHeight: '28px',
-                fontWeight: '500',
-                fontFamily: 'Roboto',
+                borderRadius: 4,
+                fontSize: 10,
+                fontWeight: 500,
                 fontStyle: 'normal',
-                height: '62px',
+                height: 31,
                 '&:hover, &:active': {
                     backgroundColor: '#3F0259',
                     borderColor: '#3F0259',
@@ -74,13 +82,23 @@ const useStyles = makeStyles((theme: Theme) =>
                 fontSize: '40px',
                 lineHeight: '40px'
             },
+            checkBoxLabel: {
+                fontStyle: 'normal',
+                fontWeight: 'normal',
+                fontSize: 16,
+                color: 'black'
+            },
+            garant: {
+                fontStyle: 'normal',
+                fontWeight: 'normal',
+                fontSize: 14
+            },
             submit: {
                 background: '#FFCF87',
                 borderRadius: '8px',
                 fontSize: '20px',
                 lineHeight: '28px',
                 fontWeight: '500',
-                fontFamily: 'Roboto',
                 fontStyle: 'normal',
                 textTransform: 'none',
                 height: '62px',
@@ -142,10 +160,8 @@ const CardOrder = () => {
     return (
         <Grid container className={classes.root} spacing={4} direction="column" justify="center">
             <Paper className={classes.paper}>
-                <Typography>
-                    <Box className={classes.box}>Закажите #картукарту</Box>
-                    <Box className={classes.box}>прямо сейчас</Box>
-                </Typography>
+                <Typography className={classes.box}>Закажите #картукарту</Typography>
+                <Typography className={classes.box}>прямо сейчас</Typography>
                 <form onSubmit={handleSubmit}>
                     <TextField
                         variant="outlined"
@@ -175,16 +191,16 @@ const CardOrder = () => {
                     />
                     <FormControlLabel
                         control={<Checkbox value="remember" color="primary" />}
-                        label="Я согласен(а) с условиями"
+                        label={<Typography className={classes.checkBoxLabel}>Я согласен(а) с условиями</Typography> }
                     />
-                    <Grid container style={{marginTop: '15px'}}>
+                    <Grid container style={{marginTop: '15px'}} spacing={4}>
                         <Grid item xl={6} lg={6} md={6} sm={12} xs={12}>
                             <Grid container spacing={2}>
                                 <Grid item xl={false} lg={false} md={false} sm={false} xs={false}>
                                     <img src="card_order_security.svg" className={classes.icon} alt="order_security" />
                                 </Grid>
                                 <Grid item xl={true} lg={true} md={true} sm={true} xs={true}>
-                                    <Typography>
+                                    <Typography className={classes.garant}>
                                         Мы гарантируем безопасность
                                         и сохранность ваших данных
                             </Typography>
@@ -197,7 +213,7 @@ const CardOrder = () => {
                                 fullWidth
                                 variant="contained"
                                 className={classes.submit}
-                            >
+                                >
                                 Подать заявку
                             </Button>
                         </Grid>
