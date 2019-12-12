@@ -5,10 +5,6 @@ import {
         MobileBanking, AdditionalInfo, GoodAnyTimeWhere,
         Footer } from './components';
 
-import ReactGA from 'react-ga';
-
-ReactGA.initialize('UA-154495729-1');
-
 function App() {
 
 
