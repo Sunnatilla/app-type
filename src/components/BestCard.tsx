@@ -12,13 +12,13 @@ const useStyles = makeStyles((theme: Theme) =>
             mainTitle: {                  
                 fontStyle: 'normal',
                 fontWeight: 'bold',
-                fontSize: '40px',
+                fontSize: 20,
                 color: '#141414'
             },
             mainDescription: {
                 fontStyle: 'normal',
                 fontWeight: 'normal',
-                fontSize: '16px',
+                fontSize: 10,
                 color: '#8B98A7'
             },
             paper: {

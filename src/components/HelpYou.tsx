@@ -83,15 +83,15 @@ const HelpYou = () => {
 
     return(
         <Grid container className={classes.mainRoot}>
-            <Grid container className={classes.root} spacing={8}>
+            <Grid container className={classes.root} spacing={4}>
                 <Grid item xl={4} lg={4} md={4} sm={12} xs={12}>
                     <Typography className={classes.helpYou}>Вам помочь?</Typography>
                     <Typography className={classes.ourSpec}>Наши специалисты помогут решить ваш вопрос</Typography>
                 </Grid>
                 <Grid item xl={4} lg={4} md={4} sm={12} xs={12}>
                     <Box className={classes.paper} height={1}>
-                        <Typography>
-                            <Call /><span className={classes.freeCall}>505</span>
+                        <Typography className={classes.freeCall}>
+                            <Call className={classes.freeCall}/> 505
                         </Typography>
                         <Typography className={classes.ourSpec}>
                             Бесплатно с мобильного
@@ -100,7 +100,9 @@ const HelpYou = () => {
                 </Grid>
                 <Grid item xl={4} lg={4} md={4} sm={12} xs={12}>
                     <Box className={classes.paper} height={1}>
-                        <PhoneAndroid /><span className={classes.phone}>8 (727) 244 30 30</span>
+                        <Typography className={classes.phone}>
+                            <PhoneAndroid className={classes.phone}/> 8 (727) 244 30 30
+                        </Typography>                        
                     </Box>
                 </Grid>
             </Grid>

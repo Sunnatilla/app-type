@@ -1,12 +1,13 @@
 import React from 'react';
 import { Grid, Typography } from '@material-ui/core';
-import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
+import { makeStyles, createStyles, Theme, useTheme } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Button from '@material-ui/core/Button';
 import MaskedInput from 'react-text-mask';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -22,10 +23,10 @@ const useStyles = makeStyles((theme: Theme) =>
             },
             paper: {
                 padding: '12px 8px 12px 8px',
-                background: '#FFFFFF',
-                border: '1px solid #FAFAFA',
+                backgroundColor: 'white',
+                border: '1px solid #E8E8E8',
                 boxSizing: 'border-box',
-                borderRadius: '2px'
+                borderRadius: 8  
             },
             box: {
                 textAlign: 'center',
@@ -50,6 +51,8 @@ const useStyles = makeStyles((theme: Theme) =>
                 fontSize: 10,
                 fontWeight: 500,
                 fontStyle: 'normal',
+                boxShadow: 'none',
+                textTransform: 'none',
                 height: 31,
                 '&:hover, &:active': {
                     backgroundColor: '#3F0259',
@@ -68,7 +71,7 @@ const useStyles = makeStyles((theme: Theme) =>
             paper: {
                 padding: '48px 32px 48px 32px',
                 background: '#FFFFFF',
-                border: '1px solid #FAFAFA',
+                border: '2px solid #FAFAFA',
                 boxSizing: 'border-box',
                 borderRadius: '8px'
             },
@@ -101,6 +104,7 @@ const useStyles = makeStyles((theme: Theme) =>
                 fontWeight: '500',
                 fontStyle: 'normal',
                 textTransform: 'none',
+                boxShadow: 'none',
                 height: '62px',
                 '&:hover, &:active': {
                     backgroundColor: '#3F0259',
@@ -157,13 +161,17 @@ const CardOrder = () => {
     }
     const classes = useStyles({});
 
+    const theme = useTheme();
+    const isXS = useMediaQuery(theme.breakpoints.down('sm'));
+
     return (
         <Grid container className={classes.root} spacing={4} direction="column" justify="center">
-            <Paper className={classes.paper}>
+            <Paper elevation={0} className={classes.paper}>
                 <Typography className={classes.box}>Закажите #картукарту</Typography>
                 <Typography className={classes.box}>прямо сейчас</Typography>
                 <form onSubmit={handleSubmit}>
                     <TextField
+                        size={isXS ? "small" : "medium"}
                         variant="outlined"
                         margin="normal"
                         required
@@ -173,9 +181,9 @@ const CardOrder = () => {
                         name="name"
                         value={name}
                         onChange={handleNameChange}
-                        autoComplete="name"
                     />
                     <TextField
+                        size={isXS ? "small" : "medium"}
                         variant="outlined"
                         margin="normal"
                         required

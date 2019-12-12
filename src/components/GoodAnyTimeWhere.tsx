@@ -63,11 +63,11 @@ const useStyles = makeStyles((theme: Theme) =>
                 background: 'white',
                 boxShadow: '0px 5px 10px rgba(0, 0, 0, 0.05)',
                 borderRadius: 4,
-                padding: '4px 16px 4px 16px',
+                padding: '4px 8px 4px 8px',
                 marginTop: 10
             },
             noteIcons: {
-                fontSize: 10,
+                fontSize: 11,
                 color: '#B9B9B9',
                 verticalAlign: 'middle',
                 marginRight: 5
@@ -85,7 +85,8 @@ const useStyles = makeStyles((theme: Theme) =>
                 fontSize: 10,
                 color: '#5B5B5B',
                 verticalAlign: 'middle',
-                textAlign: 'right'
+                textAlign: 'center',
+                margin: '10px auto 10px auto'
             },
             noteBold: {
                 fontStyle: 'normal',
@@ -117,12 +118,13 @@ const useStyles = makeStyles((theme: Theme) =>
             },
             tableBlockLeft: {
                 padding: 16,
-                textAlign: 'center'
+                textAlign: 'center',
+                borderBottom: '1px solid E8E8E8'
             },
             tableBlockLeftTitle: {
                 fontStyle: 'normal',
                 fontWeight: 'bold',
-                fontSize: 10,
+                fontSize: 12,
                 color: '#141414'
             },
             tableBlockLeftDesc: {
@@ -174,7 +176,7 @@ const useStyles = makeStyles((theme: Theme) =>
                 color: '#B9B9B9',
             },
             tableCell: {
-                minWidth: 80,
+                minWidth: 95,
                 textAlign: 'center'
             },
             table: {
@@ -384,8 +386,8 @@ const GoodAnyTimeWhere = () => {
 
     const items: InstallmentModel[] = [
         { img: 'installment_dubai.svg', name: 'Тур в Дубай', price: 180000, installment: 12, beginMonth: 1 },
-        { img: 'installment_smartphone.svg', name: 'Смартфон', price: 240000, installment: 6, beginMonth: 3 },
-        { img: 'installment_ring.svg', name: 'Кольца', price: 60000, installment: 3, beginMonth: 4 },
+        { img: 'installment_smartphone.svg', name: 'Смартфон', price: 240000, installment: 6, beginMonth: 2 },
+        { img: 'installment_ring.svg', name: 'Кольца', price: 60000, installment: 3, beginMonth: 3 },
     ];
 
     const totalMothSum = (index: number) => {
@@ -488,18 +490,24 @@ const GoodAnyTimeWhere = () => {
                     <Grid container>
                         <Grid item xl={12} lg={12} md={12} sm={12} xs={12} onClick={() => setShowNote(!isShowNote)}>
                             <Grid container className={classes.noteBlock}>
-                                <Grid item xl={9} lg={9} md={9} sm={9} xs={9}>
-                                    <EmojiObjects className={classes.noteIcons}/>
-                                    <span className={classes.noteBold}>Подсказка:</span>&nbsp;&nbsp;
-                                    <span className={classes.note}>  Активируйте режим рассрочки в StarBanking и оплачивайте покупки по частям</span>
+                                <Grid item xl={9} lg={9} md={9} sm={9} xs={12}>
+                                    <Grid container direction="row">
+                                        <Grid item sm={false} xs={false}>
+                                            <EmojiObjects className={classes.noteIcons}/>
+                                        </Grid>
+                                        <Grid item sm={true} xs={true}>
+                                            <span className={classes.noteBold}>Подсказка:</span>&nbsp;&nbsp;
+                                            <span className={classes.note}>  Активируйте режим рассрочки в StarBanking и оплачивайте покупки по частям</span>
+                                        </Grid>
+                                    </Grid>
                                 </Grid>
-                                <Grid item xl={3} lg={3} md={3} sm={3} xs={3} className={classes.note}>
+                                <Grid item xl={3} lg={3} md={3} sm={3} xs={12} className={classes.note}>
                                     { isShowNote 
                                         ? 
                                         <div className={classes.noteShow}>Скрыть <ArrowDropUp className={classes.noteIcons}/></div>
                                         :
                                         <div className={classes.noteShow}>Расскрыть <ArrowDropDown className={classes.noteIcons}/></div>
-                                    }                                    
+                                    }                                
                                 </Grid>
                             </Grid>
                         </Grid>

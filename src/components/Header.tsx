@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme: Theme) =>
                 borderRadius: 4,
                 color: 'white',
                 textTransform: 'none',
-                fontSize: '0.75rem'
+                fontSize: 9
             },
             cardDescriptionBlock: {
                 marginTop: '50px'
@@ -89,7 +89,7 @@ const useStyles = makeStyles((theme: Theme) =>
                 borderRadius: 4,
                 color: 'white',
                 textTransform: 'none',
-                fontSize: '0.875rem'
+                fontSize: 12
             },
             cardDescriptionBlock: {
                 marginTop: '107px'

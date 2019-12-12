@@ -23,8 +23,12 @@ const useStyles = makeStyles((theme: Theme) =>
                 color: '#141414',
                 marginBottom: 24
             },
+            googlePlayAppStore: {
+                width: 120,
+                height: 40
+            },
             img: {
-                width: 232,
+                width: 165,
                 height: 242
             }
         },
@@ -45,7 +49,7 @@ const useStyles = makeStyles((theme: Theme) =>
                 marginBottom: 48
             },
             img: {
-                width: 464,
+                width: 330,
                 height: 484,
                 marginRight: 50
             }
@@ -58,22 +62,24 @@ const MobileBanking = () => {
     const classes = useStyles({});
 
     return(
-        <Grid container className={classes.root}>
-            <Grid item xl={true} lg={true} md={true} sm={true} xs={true}>
+        <Grid container className={classes.root} spacing={4}>
+            <Grid item xl={7} lg={7} md={7} sm={12} xs={12}>
                 <Typography className={classes.title}>Мобильное приложение Starbanking</Typography>
                 <Typography className={classes.description}>Переводите платежи в рассрочку, следите за графиком платежей, оплачивайте услуги, 
                     вносите платежи с карт других банков РК</Typography>
                 <Grid container spacing={3}>
                     <Grid item>
-                        <img src="app_store.svg" alt="app_store" />
-                    </Grid>
+                        <img className={classes.googlePlayAppStore} src="app_store.svg" alt="app_store" />
+                    </Grid> 
                     <Grid item>
-                        <img src="google_play.svg" alt="google_play" />
+                        <img className={classes.googlePlayAppStore} src="google_play.svg" alt="google_play" />
                     </Grid>
                 </Grid>
             </Grid>
-            <Grid item xl={false} lg={false} md={false} sm={false} xs={false}>
-                <img className={classes.img} src="star_mobile_banking.png" alt="star_mobile_banking" />
+            <Grid item xl={5} lg={5} md={5} sm={12} xs={12}>
+                <Grid container justify="center">
+                    <img className={classes.img} src="star_mobile_banking.gif" alt="star_mobile_banking" />
+                </Grid>
             </Grid>
         </Grid>
     )
