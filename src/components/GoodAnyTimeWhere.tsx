@@ -69,22 +69,19 @@ const useStyles = makeStyles((theme: Theme) =>
             noteIcons: {
                 fontSize: 11,
                 color: '#B9B9B9',
-                verticalAlign: 'middle',
                 marginRight: 5
             },
             note: {
                 fontStyle: 'normal',
                 fontWeight: 'normal',
                 fontSize: 10,
-                color: '#5B5B5B',
-                verticalAlign: 'middle'
+                color: '#5B5B5B'
             },
             noteShow: {
                 fontStyle: 'normal',
                 fontWeight: 'normal',
                 fontSize: 10,
                 color: '#5B5B5B',
-                verticalAlign: 'middle',
                 textAlign: 'center',
                 margin: '10px auto 10px auto'
             },
@@ -92,14 +89,13 @@ const useStyles = makeStyles((theme: Theme) =>
                 fontStyle: 'normal',
                 fontWeight: 'bold',
                 fontSize: 10,
-                color: 'black',
-                verticalAlign: 'middle'
+                color: 'black'
             },
             noteDetailBlock: {
                 background: 'white',
                 boxShadow: '0px 5px 10px rgba(0, 0, 0, 0.05)',
                 borderRadius: 4,
-                padding: '20px 47px 100px 47px',
+                padding: '10px 20px 0px 20px',
                 marginTop: 10
             },
             noteDetail: {
@@ -181,6 +177,11 @@ const useStyles = makeStyles((theme: Theme) =>
             },
             table: {
                 overflowX: 'auto'
+            },
+            img: {
+                width: 165,
+                height: 242,
+                marginTop:25
             }
         },
         [theme.breakpoints.between('sm', 'xl')]: {
@@ -251,8 +252,7 @@ const useStyles = makeStyles((theme: Theme) =>
                 fontStyle: 'normal',
                 fontWeight: 'normal',
                 fontSize: 16,
-                color: '#5B5B5B',
-                verticalAlign: 'middle'
+                color: '#5B5B5B'
             },
             noteShow: {
                 fontStyle: 'normal',
@@ -266,14 +266,13 @@ const useStyles = makeStyles((theme: Theme) =>
                 fontStyle: 'normal',
                 fontWeight: 'bold',
                 fontSize: 16,
-                color: 'black',
-                verticalAlign: 'middle'
+                color: 'black'
             },
             noteDetailBlock: {
                 background: 'white',
                 boxShadow: '0px 5px 10px rgba(0, 0, 0, 0.05)',
                 borderRadius: 4,
-                padding: '20px 47px 100px 47px',
+                padding: '20px 47px 0px 47px',
                 marginTop: 10
             },
             noteDetail: {
@@ -363,6 +362,11 @@ const useStyles = makeStyles((theme: Theme) =>
                 '&::-webkit-scrollbar-track': {                
                     backgroundColor: '#E4E4E4'
                 }
+            },
+            img: {
+                width: 205,
+                height: 300,
+                marginTop: 20
             }
         }
     })
@@ -444,7 +448,7 @@ const GoodAnyTimeWhere = () => {
                                         )}
                                     </TableRow>
                                     {items.map((val, i) => 
-                                        <TableRow key={i}>
+                                        <TableRow key={i} style={ i%2===0 ? { backgroundColor: '#FAFAFA' }: {}}>
                                         {monthArr.map((m, index) =>
                                             <TableCell key={index} className={classes.tableCell}>
                                                 {
@@ -494,10 +498,10 @@ const GoodAnyTimeWhere = () => {
                                     <Grid container direction="row">
                                         <Grid item sm={false} xs={false}>
                                             <EmojiObjects className={classes.noteIcons}/>
+                                            <span className={classes.noteBold}>Подсказка:</span>&nbsp;&nbsp;
                                         </Grid>
                                         <Grid item sm={true} xs={true}>
-                                            <span className={classes.noteBold}>Подсказка:</span>&nbsp;&nbsp;
-                                            <span className={classes.note}>  Активируйте режим рассрочки в StarBanking и оплачивайте покупки по частям</span>
+                                            <span className={classes.note}>Активируйте режим рассрочки в StarBanking и оплачивайте покупки по частям</span>
                                         </Grid>
                                     </Grid>
                                 </Grid>
@@ -512,17 +516,30 @@ const GoodAnyTimeWhere = () => {
                             </Grid>
                         </Grid>
                         {isShowNote &&
-                            <Grid item xl={12} lg={12} md={12} sm={12} xs={12} className={classes.noteDetailBlock}>
-                                <Typography className={classes.noteBold}>Режим рассрочки</Typography>
-                                <Typography className={classes.noteDetail}>1. Выберите #картукарту из списка ваших доступных счетов.</Typography>
-                                <Typography className={classes.noteDetail}>2. Нажмите на кнопку “Рассрочка”. В обычном состоянии режим рассрочки выключен, что и показывает статус “Off”.</Typography>
-                                <Typography className={classes.noteDetail}>3. Включите режим рассрочки, сдвинув ползунок направо.</Typography>
-                                <Typography className={classes.noteDetail}>4. С включенным режимом рассрочки все ваши покупки по #картекарте будут делиться на равные части без комиссий в сети партнеров.</Typography>
+                        <Grid item xl={12} lg={12} md={12} sm={12} xs={12}  className={classes.noteDetailBlock}>
+                            <Grid container>
+                                <Grid item xl={7} lg={7} md={7} sm={12} xs={12}>
+                                    <Typography className={classes.noteBold}>Режим рассрочки</Typography>
+                                    <Typography className={classes.noteDetail}>1. Выберите #картукарту из списка ваших доступных счетов.</Typography>
+                                    <Typography className={classes.noteDetail}>2. Нажмите на кнопку “Рассрочка”. В обычном состоянии режим рассрочки выключен, что и показывает статус “Off”.</Typography>
+                                    <Typography className={classes.noteDetail}>3. Включите режим рассрочки, сдвинув ползунок направо.</Typography>
+                                    <Typography className={classes.noteDetail}>4. С включенным режимом рассрочки все ваши покупки по #картекарте будут делиться на равные части без комиссий в сети партнеров.</Typography>
+                                </Grid>
+                                <Grid item xl={5} lg={5} md={5} sm={12} xs={12}>
+                                    <Grid container justify="center">
+                                        <img className={classes.img} src="star_mobile_banking.gif" alt="star_mobile_banking" />
+                                    </Grid>
+                                </Grid>
                             </Grid>
+                        </Grid>
                         }
                         <Grid item xl={12} lg={12} md={12} sm={12} xs={12} className={classes.noteBlock}>
-                            <Error className={classes.noteIcons} />
-                            <span className={classes.note}>Вне сети партнеров Банка под 1% на 3 месяца</span>
+                            <Grid container direction="row" alignItems="center">
+                                <Grid item>
+                                    <Error className={classes.noteIcons} />
+                                    <span className={classes.note}>Вне сети партнеров Банка под 1% на 3 месяца</span>
+                                </Grid>
+                            </Grid>
                         </Grid>
                     </Grid>
                 </Grid>
