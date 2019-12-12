@@ -5,11 +5,14 @@ import {
         MobileBanking, AdditionalInfo, GoodAnyTimeWhere,
         Footer } from './components';
 
+import { YMInitializer } from 'react-yandex-metrika';
+
 function App() {
 
 
   return (
     <div>
+      <YMInitializer accounts={[56638654]} />
       <Header />      
       <BestCard />
       <GoodAnyTimeWhere />
