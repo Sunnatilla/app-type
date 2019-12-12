@@ -3,6 +3,7 @@ import { Grid, Typography, Table, TableBody, TableRow, TableCell, Box } from '@m
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import Tab from './Tab';
 import { rootSmXl, paddingDownSm } from "../helper/DefaultStyle";
+import ReactGA from 'react-ga';
 
 const useStylesTarifs = makeStyles((theme: Theme) =>
     createStyles({
@@ -97,13 +98,20 @@ const AdditionalInfo = () => {
 
     const classes = useStyles({});
 
+    const swipeTab = (index: number) => {
+        ReactGA.event({
+            category: 'BccCard',
+            action: index === 0 ? 'Additional_Rates' : 'Additionally_FAQ'
+        });
+    }
+
     return( 
         <Grid container className={classes.root}>
             <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
                 <Typography className={classes.title}>Дополнительно</Typography>
             </Grid>
             <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
-                <Tab menuTitle={["Тарифы", "Часто задаваемые вопросы"]} pans={[<Tarifs />, <Tarifs />]} />
+                <Tab onHandleChanged={(i: number)=>swipeTab(i)} menuTitle={["Тарифы", "Часто задаваемые вопросы"]} pans={[<Tarifs />, <Tarifs />]} />
             </Grid>
         </Grid>);
 }

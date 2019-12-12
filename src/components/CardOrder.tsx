@@ -8,6 +8,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Button from '@material-ui/core/Button';
 import MaskedInput from 'react-text-mask';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
+import ReactGA from 'react-ga';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -164,6 +165,13 @@ const CardOrder = () => {
     const theme = useTheme();
     const isXS = useMediaQuery(theme.breakpoints.down('sm'));
 
+    const onClickApplyApp = () => {
+        ReactGA.event({
+            category: 'BccCard',
+            action: 'kartakarta_Apply_Success'
+        });
+    }
+
     return (
         <Grid container className={classes.root} spacing={4} direction="column" justify="center">
             <Paper elevation={0} className={classes.paper}>
@@ -221,6 +229,7 @@ const CardOrder = () => {
                                 fullWidth
                                 variant="contained"
                                 className={classes.submit}
+                                onClick={() => onClickApplyApp()}
                                 >
                                 Подать заявку
                             </Button>

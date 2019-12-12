@@ -143,11 +143,11 @@ const Header = (props: any) => {
 
     const classes = useStyles({});
 
-    const onClickInternetBank = () => {
+    const eventGAOrderCard = () => {
         ReactGA.event({
-            category: 'InternentBanking',
-            action: 'login'
-        })
+            category: 'BccCard',
+            action: '1button_to_order_card'
+        });
     }
 
     return(
@@ -163,7 +163,7 @@ const Header = (props: any) => {
                         <Grid item xl={6} lg={6} md={6} sm={6} xs={6}>
                             <Grid container justify="flex-end">
                                 <Grid item>
-                                    <Button onClick={() => onClickInternetBank()} className={classes.buttonInternetBank} variant="outlined">
+                                    <Button className={classes.buttonInternetBank} variant="outlined">
                                         Интернет-банк
                                     </Button>
                                 </Grid>
@@ -196,7 +196,7 @@ const Header = (props: any) => {
                             </Grid>
                         </Grid>
                         <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
-                            <Button variant="contained" className={classes.buttonOrderCard}>Заказать карту</Button>
+                            <Button onClick={() => eventGAOrderCard()} variant="contained" className={classes.buttonOrderCard}>Заказать карту</Button>
                         </Grid>
                     </Grid>
                 </Grid>

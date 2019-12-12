@@ -69,6 +69,7 @@ const StyledTabs = withStyles({
 interface SimpleTabsProps {
     menuTitle: Array<string>;
     pans: Array<React.ReactNode>;
+    onHandleChanged: Function;
 }
 
 export default function SimpleTabs(props: SimpleTabsProps) {
@@ -81,6 +82,7 @@ export default function SimpleTabs(props: SimpleTabsProps) {
 
   const handleChangeIndex = (index: number) => {
     setValue(index);
+    props.onHandleChanged(index);
   };
 
   return (

@@ -3,6 +3,7 @@ import { Grid, Typography, Button, Paper, Slider } from '@material-ui/core';
 import { makeStyles, createStyles, Theme, withStyles } from '@material-ui/core/styles';
 import NumberFormat from 'react-number-format'; 
 import { paddingDownSm, rootSmXl } from './helper/DefaultStyle';
+import ReactGA from 'react-ga';
 
 const PrettoSlider = withStyles({
     root: {
@@ -228,6 +229,13 @@ const CaclulatorCashBack = (props: any) => {
 
     const [spendingSum, setSpendingSum] = React.useState(300000);
 
+    const onClickIssue = () => {
+        ReactGA.event({
+            category: 'BccCard',
+            action: 'button_Get'
+        });
+    }
+
     return(
         <Grid container className={classes.root} spacing={4}>
             <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
@@ -285,7 +293,7 @@ const CaclulatorCashBack = (props: any) => {
                             <Typography align="center" className={classes.resultTitle}>Ваш кешбэк с картой #КартаКарта</Typography>
                             <Typography align="center" className={classes.resultSum}>45000 ₸</Typography>
                             <Typography align="center">
-                                <Button className={classes.resultOrderCard}>Оформить</Button>
+                                <Button onClick={() => onClickIssue()} className={classes.resultOrderCard}>Оформить</Button>
                             </Typography>                    
                         </Paper>
                     </Grid>

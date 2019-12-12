@@ -2,6 +2,7 @@ import React from 'react';
 import { Grid, Typography } from '@material-ui/core';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import { paddingDownSm, rootSmXl } from './helper/DefaultStyle';
+import ReactGA from 'react-ga';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -61,6 +62,20 @@ const MobileBanking = () => {
 
     const classes = useStyles({});
 
+    const onClickAppStore = () => {
+        ReactGA.event({
+            category: 'BccCard',
+            action: 'AppStore_download'
+        });
+    }
+
+    const onClickGooglePlay = () => {
+        ReactGA.event({
+            category: 'BccCard',
+            action: 'GooglePlay_download'
+        });
+    }
+
     return(
         <Grid container className={classes.root} spacing={4}>
             <Grid item xl={7} lg={7} md={7} sm={12} xs={12}>
@@ -69,10 +84,10 @@ const MobileBanking = () => {
                     вносите платежи с карт других банков РК</Typography>
                 <Grid container spacing={3}>
                     <Grid item>
-                        <img className={classes.googlePlayAppStore} src="app_store.svg" alt="app_store" />
+                        <img onClick={() => onClickAppStore()} className={classes.googlePlayAppStore} src="app_store.svg" alt="app_store" />
                     </Grid> 
                     <Grid item>
-                        <img className={classes.googlePlayAppStore} src="google_play.svg" alt="google_play" />
+                        <img onClick={() => onClickGooglePlay()} className={classes.googlePlayAppStore} src="google_play.svg" alt="google_play" />
                     </Grid>
                 </Grid>
             </Grid>

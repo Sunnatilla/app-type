@@ -4,6 +4,7 @@ import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import { paddingDownSm, rootSmXl } from './helper/DefaultStyle';
 import { EmojiObjects, ArrowDropDown, ArrowDropUp, Error } from '@material-ui/icons';
 import NumberFormat from 'react-number-format'; 
+import ReactGA from 'react-ga';
  
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -388,6 +389,16 @@ const GoodAnyTimeWhere = () => {
 
     const [isShowNote, setShowNote] = React.useState(false);
 
+    const toggleNote = (val: boolean) => {
+
+        setShowNote(val);
+        
+        ReactGA.event({
+            category: 'BccCard',
+            action: 'to_uncover'
+        });
+    }
+
     const items: InstallmentModel[] = [
         { img: 'installment_dubai.svg', name: 'Тур в Дубай', price: 180000, installment: 12, beginMonth: 1 },
         { img: 'installment_smartphone.svg', name: 'Смартфон', price: 240000, installment: 6, beginMonth: 2 },
@@ -492,7 +503,7 @@ const GoodAnyTimeWhere = () => {
                 </Grid>
                 <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
                     <Grid container>
-                        <Grid item xl={12} lg={12} md={12} sm={12} xs={12} onClick={() => setShowNote(!isShowNote)}>
+                        <Grid item xl={12} lg={12} md={12} sm={12} xs={12} onClick={() => toggleNote(!isShowNote)}>
                             <Grid container className={classes.noteBlock}>
                                 <Grid item xl={9} lg={9} md={9} sm={9} xs={12}>
                                     <Grid container direction="row">
