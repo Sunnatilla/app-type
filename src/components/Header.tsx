@@ -163,7 +163,7 @@ const Header = (props: any) => {
                         <Grid item xl={6} lg={6} md={6} sm={6} xs={6}>
                             <Grid container justify="flex-end">
                                 <Grid item>
-                                    <Button className={classes.buttonInternetBank} variant="outlined">
+                                    <Button onClick={() => onClickInternetBank()} className={classes.buttonInternetBank} variant="outlined">
                                         Интернет-банк
                                     </Button>
                                 </Grid>
