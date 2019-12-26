@@ -1,4 +1,4 @@
-export const paddingSmXl = '72px 52px 72px 52px';
+export const paddingSmXl = '56px 52px 56px 52px';
 
 export const rootSmXl = {
     root: {

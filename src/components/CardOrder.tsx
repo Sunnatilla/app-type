@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme: Theme) =>
                 backgroundColor: 'white',
                 border: '1px solid #E8E8E8',
                 boxSizing: 'border-box',
-                borderRadius: 8  
+                borderRadius: 8
             },
             box: {
                 textAlign: 'center',
@@ -83,8 +83,8 @@ const useStyles = makeStyles((theme: Theme) =>
             box: {
                 textAlign: 'center',
                 fontWeight: 'fontWeightBold',
-                fontSize: '40px',
-                lineHeight: '40px'
+                fontSize: '45px',
+                lineHeight: '40px',
             },
             checkBoxLabel: {
                 fontStyle: 'normal',
@@ -98,15 +98,16 @@ const useStyles = makeStyles((theme: Theme) =>
                 fontSize: 14
             },
             submit: {
-                background: '#FFCF87',
+                background: 'purple',
                 borderRadius: '8px',
                 fontSize: '20px',
                 lineHeight: '28px',
                 fontWeight: '500',
-                fontStyle: 'normal',
+                fontStyle: 'white',
                 textTransform: 'none',
                 boxShadow: 'none',
                 height: '62px',
+                color: 'white',
                 '&:hover, &:active': {
                     backgroundColor: '#3F0259',
                     borderColor: '#3F0259',
@@ -122,10 +123,10 @@ const useStyles = makeStyles((theme: Theme) =>
 interface TextMaskCustomProps {
     inputRef: (ref: HTMLInputElement | null) => void;
   }
-  
+
   function TextMaskCustom(props: TextMaskCustomProps) {
     const { inputRef, ...other } = props;
-  
+
     return (
       <MaskedInput
         {...other}
@@ -175,8 +176,8 @@ const CardOrder = () => {
     return (
         <Grid container className={classes.root} spacing={4} direction="column" justify="center">
             <Paper elevation={0} className={classes.paper}>
-                <Typography className={classes.box}>Закажите #картукарту</Typography>
-                <Typography className={classes.box}>прямо сейчас</Typography>
+                <Typography className={classes.box}>Заполните заявку</Typography>
+                <Typography className={classes.box}>и получите #картакарта</Typography>
                 <form onSubmit={handleSubmit}>
                     <TextField
                         size={isXS ? "small" : "medium"}
@@ -185,7 +186,7 @@ const CardOrder = () => {
                         required
                         fullWidth
                         id="name"
-                        label="Фамилия, имя и отчество"
+                        label="Имя"
                         name="name"
                         value={name}
                         onChange={handleNameChange}
@@ -207,7 +208,7 @@ const CardOrder = () => {
                     />
                     <FormControlLabel
                         control={<Checkbox value="remember" color="primary" />}
-                        label={<Typography className={classes.checkBoxLabel}>Я согласен(а) с условиями</Typography> }
+                        label={<Typography className={classes.checkBoxLabel}>Я согласен(а) на сбор и обработку персональных данных</Typography> }
                     />
                     <Grid container style={{marginTop: '15px'}} spacing={4}>
                         <Grid item xl={6} lg={6} md={6} sm={12} xs={12}>
@@ -218,6 +219,8 @@ const CardOrder = () => {
                                 <Grid item xl={true} lg={true} md={true} sm={true} xs={true}>
                                     <Typography className={classes.garant}>
                                         Мы гарантируем безопасность
+                            </Typography>
+                            <Typography className={classes.garant}>
                                         и сохранность ваших данных
                             </Typography>
                                 </Grid>
@@ -231,7 +234,7 @@ const CardOrder = () => {
                                 className={classes.submit}
                                 onClick={() => onClickApplyApp()}
                                 >
-                                Подать заявку
+                                Оформить
                             </Button>
                         </Grid>
                     </Grid>

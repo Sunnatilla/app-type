@@ -12,16 +12,16 @@ function App() {
 
   return (
     <div>
-      <YMInitializer accounts={[56638654]} />
+      <YMInitializer accounts={[56824144]} />
       <Header />      
       <BestCard />
       <GoodAnyTimeWhere />
       <CalculatorCashback />
       <HowToGetCard />
       <CardOrder />
-      <HelpYou />
       <MobileBanking />
       <AdditionalInfo />
+      <HelpYou />
       <Footer />
     </div>
   );

@@ -7,7 +7,7 @@ import ReactGA from 'react-ga';
 
 const PrettoSlider = withStyles({
     root: {
-      color: '#FFCF87',
+      color: '#FFCF90',
       height: 4,
     },
     thumb: {
@@ -177,7 +177,7 @@ const useStyles = makeStyles((theme: Theme) =>
                 fontStyle: 'normal',
                 fontWeight: 'normal',
                 fontSize: '96px',
-                color: '#141414'
+                color: '#141414',
             },
             resultOrderCard: {
                 width:'324px',
@@ -227,14 +227,28 @@ const CaclulatorCashBack = (props: any) => {
 
     const classes = useStyles({});
 
-    const [spendingSum, setSpendingSum] = React.useState(300000);
+    const [spendingSum, setSpendingSum] = React.useState(200000);
 
     const onClickIssue = () => {
         ReactGA.event({
-            category: 'BccCard',
+            category: '#CardCard',
             action: 'button_Get'
         });
     }
+
+    // const onClickInAnyCategories = () => {
+    //     ReactGA.event({
+    //         category: '#CardCard',
+    //         action: 'button_in_any_categories'
+    //     });
+    // }
+
+    // const onClickInAllCategories = () => {
+    //     ReactGA.event({
+    //         category: '#CardCard',
+    //         action: 'button_in_all_categories'
+    //     });
+    // }
 
     return(
         <Grid container className={classes.root} spacing={4}>
@@ -244,17 +258,17 @@ const CaclulatorCashBack = (props: any) => {
             <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
                 <Grid container spacing={4}>
                     <Grid item xl={6} lg={6} md={6} sm={12} xs={12}>
-                        <Grid container spacing={2}>
+                        {/* <Grid container spacing={2}>
                             <Grid item>
-                                <Button className={classes.tabButtonActive}>по любимым категориям</Button>
+                                <Button onClick={() => onClickInAnyCategories()} variant="contained" className={classes.tabButtonActive}>по любимым категориям</Button>
                             </Grid>
                             <Grid item>
-                                <Button className={classes.tabButton}>по всем категориям</Button>
+                                <Button onClick={() => onClickInAllCategories()} variant="contained" className={classes.tabButton}>по всем категориям</Button>
                             </Grid>
-                        </Grid>
+                        </Grid> */}
                         <Grid container>
                             <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
-                                <Typography className={classes.monthSpending}>Траты в месяц по любимым категориям*</Typography>
+                                <Typography className={classes.monthSpending}>Личные покупки в месяц</Typography>
                             </Grid>
                             <Grid item xl={12} lg={12} md={12} sm={12} xs={12}
                                     className={classes.monthSpendingSum} >
@@ -266,8 +280,8 @@ const CaclulatorCashBack = (props: any) => {
                             <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
                                 <PrettoSlider 
                                     min={0}
-                                    max={1000000}
-                                    valueLabelDisplay="off" 
+                                    max={400000}
+                                    valueLabelDisplay="off"
                                     aria-label="pretto slider" 
                                     defaultValue={spendingSum}
                                     onChange={(e, val) => setSpendingSum(val instanceof Array ? val[1] : val)}
@@ -280,18 +294,18 @@ const CaclulatorCashBack = (props: any) => {
                             </Grid>
                             <Grid item xl={6} lg={6} md={6} sm={6} xs={6}>
                                 <Grid container justify="flex-end">
-                                    <Typography className={classes.monthSpendingInterval}>1 000 000</Typography>
+                                    <Typography className={classes.monthSpendingInterval}>400 000</Typography>
                                 </Grid>
                             </Grid>
                             <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
-                                <Typography className={classes.note}>*В расчет взяли кешбэк под 5%. То есть, сумма бонусов может быть намного больше</Typography>
+                                <Typography className={classes.note}>*В расчет для примера взят кешбэк 5%. С партнерским кешбэком до 30% вы можете зарабатывать намного больше</Typography>
                             </Grid>
                         </Grid>
                     </Grid>
                     <Grid item xl={6} lg={6} md={6} sm={12} xs={12}>
                         <Paper elevation={0} className={classes.result}>
                             <Typography align="center" className={classes.resultTitle}>Ваш кешбэк с картой #КартаКарта</Typography>
-                            <Typography align="center" className={classes.resultSum}>45000 ₸</Typography>
+                            <Typography align="center" className={classes.resultSum}>{Math.round(spendingSum *0.05)}</Typography>
                             <Typography align="center">
                                 <Button onClick={() => onClickIssue()} className={classes.resultOrderCard}>Оформить</Button>
                             </Typography>                    

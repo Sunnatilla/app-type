@@ -80,8 +80,8 @@ const MobileBanking = () => {
         <Grid container className={classes.root} spacing={4}>
             <Grid item xl={7} lg={7} md={7} sm={12} xs={12}>
                 <Typography className={classes.title}>Мобильное приложение Starbanking</Typography>
-                <Typography className={classes.description}>Переводите платежи в рассрочку, следите за графиком платежей, оплачивайте услуги, 
-                    вносите платежи с карт других банков РК</Typography>
+                <Typography className={classes.description}>Оплачивайте услуги, управляйте рассрочкой и кешбэком, 
+                пополняйте карту онлайн с карт других банков</Typography>
                 <Grid container spacing={3}>
                     <Grid item>
                         <img onClick={() => onClickAppStore()} className={classes.googlePlayAppStore} src="app_store.svg" alt="app_store" />
@@ -93,7 +93,7 @@ const MobileBanking = () => {
             </Grid>
             <Grid item xl={5} lg={5} md={5} sm={12} xs={12}>
                 <Grid container justify="center">
-                    <img className={classes.img} src="star_mobile_banking.png" alt="star_mobile_banking" />
+                    <img className={classes.img} src="star_mobile_bankingNew.png" alt="star_mobile_banking" />
                 </Grid>
             </Grid>
         </Grid>

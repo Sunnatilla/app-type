@@ -75,6 +75,7 @@ const useStyles = makeStyles((theme: Theme) =>
             mainRoot: {
                 background: 'url(header-main.svg) no-repeat center center fixed',
                 backgroundSize: 'cover',
+                maxHeight: 560
             },
             ...rootSmXl,
             logo_img: {
@@ -93,13 +94,14 @@ const useStyles = makeStyles((theme: Theme) =>
                 fontSize: 12
             },
             cardDescriptionBlock: {
-                marginTop: '107px'
+                marginTop: '60px'
+
             },
             cardTitle: {                
                 fontStyle: 'normal',
                 fontWeight: 'bold',
                 fontSize: '48px',
-                color: 'white'
+                color: 'white',
             },
             cardWhatYourWant: { 
                 fontStyle: 'normal',
@@ -145,7 +147,7 @@ const Header = (props: any) => {
 
     const eventGAOrderCard = () => {
         ReactGA.event({
-            category: 'BccCard',
+            category: '#CardCard',
             action: '1button_to_order_card'
         });
     }
@@ -182,21 +184,21 @@ const Header = (props: any) => {
                         <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
                             <Grid container spacing={6}>
                                 <Grid item>
-                                    <Typography className={classes.cardLimitPecentDay}>до 3 млн тенге</Typography>
-                                    <Typography className={classes.cardLimitPecentDayTh}>Кредитный лимит</Typography>
+                                    <Typography className={classes.cardLimitPecentDay}>до 3 000 000 т</Typography>
+                                    <Typography className={classes.cardLimitPecentDayTh}>Без процентов - до 55 дней</Typography>
+                                </Grid>
+                                <Grid item>
+                                    <Typography className={classes.cardLimitPecentDay}>Рассрочка без процентов</Typography>
+                                    <Typography className={classes.cardLimitPecentDayTh}>до 12 месяцев</Typography>
                                 </Grid>
                                 <Grid item>
                                     <Typography className={classes.cardLimitPecentDay}>до 30%</Typography>
                                     <Typography className={classes.cardLimitPecentDayTh}>Кешбэк</Typography>
                                 </Grid>
-                                <Grid item>
-                                    <Typography className={classes.cardLimitPecentDay}>до 55 дней</Typography>
-                                    <Typography className={classes.cardLimitPecentDayTh}>Льготный период</Typography>
-                                </Grid>
                             </Grid>
                         </Grid>
                         <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
-                            <Button onClick={() => eventGAOrderCard()} variant="contained" className={classes.buttonOrderCard}>Заказать карту</Button>
+                            <Button onClick={() => eventGAOrderCard()} variant="contained" className={classes.buttonOrderCard}>Оформить карту</Button>
                         </Grid>
                     </Grid>
                 </Grid>

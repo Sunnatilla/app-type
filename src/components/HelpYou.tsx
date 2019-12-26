@@ -2,7 +2,7 @@ import React from 'react'
 import { Grid, Typography, Box } from '@material-ui/core';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import { paddingDownSm, rootSmXl } from './helper/DefaultStyle';
-import { PhoneAndroid, Call } from '@material-ui/icons';
+import { PhoneAndroid, Call, FormatAlignCenter } from '@material-ui/icons';
 import ReactGA from 'react-ga';
  
 const useStyles = makeStyles((theme: Theme) =>
@@ -10,7 +10,8 @@ const useStyles = makeStyles((theme: Theme) =>
         [theme.breakpoints.down('sm')]: {
             root: {
                 padding: paddingDownSm,
-                backgroundColor: '#FAFAFA'
+                backgroundColor: '#FAFAFA',
+                
             },
             helpYou: {
                 fontStyle: 'normal',
@@ -43,7 +44,8 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         [theme.breakpoints.between('sm', 'xl')]: {
             mainRoot: {
-                backgroundColor: '#FAFAFA'
+                backgroundColor: '#FAFAFA',
+                
             },
             ...rootSmXl,
             helpYou: {
@@ -92,10 +94,10 @@ const HelpYou = () => {
     return(
         <Grid container className={classes.mainRoot}>
             <Grid container className={classes.root} spacing={4}>
-                <Grid item xl={4} lg={4} md={4} sm={12} xs={12}>
+                {/* <Grid item xl={4} lg={4} md={4} sm={12} xs={12}>
                     <Typography className={classes.helpYou}>Вам помочь?</Typography>
                     <Typography className={classes.ourSpec}>Наши специалисты помогут решить ваш вопрос</Typography>
-                </Grid>
+                </Grid> */}
                 <Grid item xl={4} lg={4} md={4} sm={12} xs={12}>
                     <Box onClick={() => onClickCall505()} className={classes.paper} height={1}>
                         <Typography className={classes.freeCall}>
