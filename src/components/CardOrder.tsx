@@ -14,7 +14,6 @@ import Button from "@material-ui/core/Button";
 import MaskedInput from "react-text-mask";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import ReactGA from "react-ga";
-import { FormatBold } from "@material-ui/icons";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({

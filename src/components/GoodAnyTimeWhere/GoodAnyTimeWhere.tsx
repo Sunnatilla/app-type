@@ -20,6 +20,33 @@ const useStyles = makeStyles((theme: Theme) =>
         fontWeight: "bold",
         fontSize: 20,
         color: "#141414"
+      },
+      tabButtonActive: {
+        width: 160,
+        height: 30,
+        backgroundColor: "#FFCF87",
+        borderRadius: 4,
+        fontStyle: "normal",
+        fontWeight: "normal",
+        fontSize: 10,
+        textTransform: "none",
+        "&:hover, &:active": {
+          backgroundColor: "#FFCF87",
+          opacity: 0.8
+        }
+      },
+      tabButtonsBlock: {
+        marginTop: 12
+      },
+      tabButton: {
+        width: 140,
+        height: 30,
+        backgroundColor: "#E8E8E8",
+        borderRadius: 4,
+        fontStyle: "normal",
+        fontWeight: "normal",
+        fontSize: 10,
+        textTransform: "none"
       }
     },
     [theme.breakpoints.between("sm", "xl")]: {
@@ -33,8 +60,11 @@ const useStyles = makeStyles((theme: Theme) =>
         fontSize: 40,
         color: "#141414"
       },
+      tabButtonsBlock: {
+        marginTop: 20
+      },
       tabButtonActive: {
-        width: "181px",
+        width: "215px",
         height: "36px",
         backgroundColor: "#FFCF87",
         borderRadius: "4px",
@@ -55,11 +85,7 @@ const useStyles = makeStyles((theme: Theme) =>
         fontStyle: "normal",
         fontWeight: "normal",
         fontSize: "14px",
-        textTransform: "none",
-        "&:hover, &:active": {
-          backgroundColor: "#FFCF87",
-          opacity: 0.8
-        }
+        textTransform: "none"
       }
     }
   })
@@ -120,7 +146,6 @@ const GoodAnyTimeWhere = (props: any) => {
             <Grid item>
               <Button
                 onClick={() => eventGASmartFreeLoan()}
-                variant="contained"
                 className={classes.tabButtonActive}
               >
                 Умная рассрочка
@@ -129,9 +154,7 @@ const GoodAnyTimeWhere = (props: any) => {
             <Grid item>
               <Button
                 onClick={() => eventGACreditCard()}
-                variant="contained"
                 className={classes.tabButton}
-                color="primary"
               >
                 Кредитная карта
               </Button>

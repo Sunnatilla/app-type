@@ -12,7 +12,7 @@ import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
 import Tab from "./Tab";
 import { rootSmXl, paddingDownSm } from "../helper/DefaultStyle";
 import ReactGA from "react-ga";
-import { ArrowDropDown, ArrowDropUp } from "@material-ui/icons";
+import { ArrowDropDown } from "@material-ui/icons";
 
 const useStylesTarifs = makeStyles((theme: Theme) =>
   createStyles({
@@ -27,7 +27,7 @@ const useStylesTarifs = makeStyles((theme: Theme) =>
         fontStyle: "normal",
         fontWeight: "normal",
         fontSize: 10,
-        color: "green"
+        color: "black"
       }
     },
     [theme.breakpoints.between("sm", "xl")]: {

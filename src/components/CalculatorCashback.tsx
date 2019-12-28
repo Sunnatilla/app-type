@@ -9,7 +9,6 @@ import {
 import NumberFormat from "react-number-format";
 import { paddingDownSm, rootSmXl } from "./helper/DefaultStyle";
 import ReactGA from "react-ga";
-import color from "@material-ui/core/colors/amber";
 
 const PrettoSlider = withStyles({
   root: {

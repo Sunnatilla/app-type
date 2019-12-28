@@ -95,9 +95,6 @@ export default function SimpleTabs(props: SimpleTabsProps) {
           ))}
         </StyledTabs>
       </Paper>
-      <div>
-        <hr />
-      </div>
       <SwipeableViews
         axis={"x"}
         index={value}

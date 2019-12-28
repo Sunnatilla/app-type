@@ -2,7 +2,6 @@ import React from "react";
 import {
   Grid,
   Button,
-  RootRef,
   Typography,
   Table,
   TableBody,
@@ -428,13 +427,6 @@ const monthArr = [
 
 const Installment = (props: any) => {
   const classes = useStyles({});
-
-  const eventGAUp = () => {
-    ReactGA.event({
-      category: "#CardCard",
-      action: "button_up"
-    });
-  };
 
   const eventGAUncover = () => {
     ReactGA.event({

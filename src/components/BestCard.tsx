@@ -1,13 +1,7 @@
 import React from "react";
-import { Grid, Button, RootRef, Typography } from "@material-ui/core";
-import {
-  makeStyles,
-  createStyles,
-  Theme,
-  responsiveFontSizes
-} from "@material-ui/core/styles";
-import { paddingDownSm, rootSmXl } from "./helper/DefaultStyle";
-import { purple } from "@material-ui/core/colors";
+import { Grid, Typography } from "@material-ui/core";
+import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
+import { rootSmXl } from "./helper/DefaultStyle";
 import ReactGA from "react-ga";
 
 const useStyles = makeStyles((theme: Theme) =>

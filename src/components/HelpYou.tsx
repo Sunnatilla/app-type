@@ -2,7 +2,7 @@ import React from "react";
 import { Grid, Typography, Box } from "@material-ui/core";
 import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
 import { paddingDownSm, rootSmXl } from "./helper/DefaultStyle";
-import { PhoneAndroid, Call, FormatAlignCenter } from "@material-ui/icons";
+import { PhoneAndroid, Call } from "@material-ui/icons";
 import ReactGA from "react-ga";
 
 const useStyles = makeStyles((theme: Theme) =>
