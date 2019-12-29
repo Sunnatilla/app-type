@@ -100,7 +100,14 @@ const useStyles = makeStyles((theme: Theme) =>
         fontWeight: 500,
         fontSize: "10px",
         textTransform: "none",
-        color: "#FFFFFF"
+        color: "#FFFFFF",
+        "&:hover, &:active": {
+          backgroundColor: "#3F0259",
+          borderColor: "#3F0259",
+          opacity: 0.8,
+          boxShadow: "none",
+          color: "#FFFFFF"
+        }
       },
       monthSpending: {
         fontStyle: "normal",
@@ -190,7 +197,14 @@ const useStyles = makeStyles((theme: Theme) =>
         fontWeight: 500,
         fontSize: "20px",
         textTransform: "none",
-        color: "#FFFFFF"
+        color: "#FFFFFF",
+        "&:hover, &:active": {
+          backgroundColor: "#3F0259",
+          borderColor: "#3F0259",
+          opacity: 0.8,
+          boxShadow: "none",
+          color: "#FFFFFF"
+        }
       },
       monthSpending: {
         fontStyle: "normal",

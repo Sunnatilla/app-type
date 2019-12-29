@@ -53,7 +53,7 @@ interface StyledTabsProps {
   onChange: (event: React.ChangeEvent<{}>, newValue: number) => void;
 }
 
-const StyledTabs = withStyles({
+const StyledTabs = withStyles({  
   indicator: {
     display: "flex",
     justifyContent: "center",
@@ -62,7 +62,7 @@ const StyledTabs = withStyles({
       width: "100%",
       backgroundColor: "#FFCF87"
     },
-    height: 4
+    height: 3
   },
   flexContainer: {
     borderBottom: "1px solid #C4C4C4"

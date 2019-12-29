@@ -41,7 +41,11 @@ const useStyles = makeStyles((theme: Theme) =>
         boxShadow: "0px 5px 10px rgba(0, 0, 0, 0.05)",
         borderRadius: 4,
         padding: "4px 8px 4px 8px",
-        marginTop: 10
+        marginTop: 10,
+        "&:hover": {
+          backgroundColor: "#E8E8E8",
+          cursor: "pointer"
+        }
       },
       noteIcons: {
         fontSize: 11,
@@ -192,7 +196,11 @@ const useStyles = makeStyles((theme: Theme) =>
         borderRadius: 4,
         padding: "16px 16px 16px 16px",
         lineHeight: "42px",
-        marginTop: 10
+        marginTop: 10,
+        "&:hover": {
+          backgroundColor: "#E8E8E8",
+          cursor: "pointer"
+        }
       },
       noteIcons: {
         fontSize: 20,
@@ -356,7 +364,7 @@ const monthArr = [
   "Декабрь"
 ];
 
-const Installment = () => {
+const Installment = (props: any) => {
   const classes = useStyles({});
 
   const [isShowNote, setShowNote] = React.useState(false);
@@ -630,6 +638,7 @@ const Installment = () => {
                     <Button
                       variant="outlined"
                       className={classes.noteDetailButton}
+                      onClick={() => props.scrollToOrder()}
                     >
                       Оформить рассрочку
                     </Button>

@@ -149,10 +149,10 @@ const Documents = () => {
             <TableRow key={i}>
               <TableCell colSpan={2} className={classes.td}>
                 {
-                  <span>
+                  <Typography>
                     <img src="pdf.svg" alt="pdf" />
-                    &nbsp; {m}
-                  </span>
+                      &nbsp; {m}
+                  </Typography>
                 }
               </TableCell>
             </TableRow>

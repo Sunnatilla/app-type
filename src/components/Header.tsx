@@ -127,6 +127,7 @@ const Header = (props: any) => {
       category: "BccCard",
       action: "1button_to_order_card"
     });
+    props.scrollToOrder();
   };
 
   return (
